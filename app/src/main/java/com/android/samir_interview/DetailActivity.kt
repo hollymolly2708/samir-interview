@@ -1,8 +1,8 @@
 package com.android.samir_interview
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.samir_interview.data.domain.model.Loan
 import com.android.samir_interview.databinding.ActivityDetailBinding
 
@@ -18,8 +18,45 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val getLoan = intent.extras?.get(LOAN)
-        Log.e("loan", getLoan.toString())
+        val getLoanFromIntent = intent.extras?.get(LOAN) as Loan
+        setupView(getLoanFromIntent)
+
+
+    }
+
+
+    private fun setupView(loan: Loan) {
+        val installmentItem = loan.repaymentSchedule?.installmentItems
+        if (installmentItem != null) {
+            val adapter = InstallmentAdapter(loan.repaymentSchedule.installmentItems)
+            binding.rvInstallment.adapter = adapter
+            binding.rvInstallment.layoutManager = LinearLayoutManager(this)
+            binding.rvInstallment.setHasFixedSize(true)
+        }
+
+        val documents = loan.documents
+        if (documents != null) {
+            val adapter = DocumentAdapter(loan.documents)
+            binding.rvDocument.adapter = adapter
+            binding.rvDocument.layoutManager = LinearLayoutManager(this)
+            binding.rvDocument.setHasFixedSize(true)
+        }
+
+
+        loan.let {
+            binding.borrowerName.text = it.borrower?.name
+            binding.borrowerEmail.text = it.borrower?.email
+            binding.borrowerId.text = it.borrower?.id
+            binding.borrowerCreditScore.text = it.borrower?.creditScore.toString()
+            binding.loanId.text = it.id
+            binding.loanAmount.text = it.amount.toString()
+            binding.loanTerm.text = it.term.toString()
+            binding.loanPurpose.text = it.purpose
+            binding.loanInterestRate.text = it.interestRate.toString()
+            binding.loanRiskRating.text = it.riskRating
+            binding.collateralType.text = it.collateral?.type
+            binding.collateralValue.text = it.collateral?.value.toString()
+        }
 
     }
 

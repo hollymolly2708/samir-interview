@@ -5,5 +5,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class RepaymentSchedule(
-    val installments: List<InstallmentsItem>? = null
+    val installmentItems: List<InstallmentItem>? = null
 ): Parcelable

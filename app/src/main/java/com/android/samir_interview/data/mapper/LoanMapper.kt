@@ -3,10 +3,9 @@ package com.android.samir_interview.data.mapper
 import com.android.samir_interview.data.domain.model.Borrower
 import com.android.samir_interview.data.domain.model.Collateral
 import com.android.samir_interview.data.domain.model.DocumentsItem
-import com.android.samir_interview.data.domain.model.InstallmentsItem
+import com.android.samir_interview.data.domain.model.InstallmentItem
 import com.android.samir_interview.data.domain.model.Loan
 import com.android.samir_interview.data.domain.model.RepaymentSchedule
-import com.android.samir_interview.data.source.remote.response.RepaymentScheduleResponse
 import com.nature_farm.android.samir_interview.LoanResponse
 import java.util.stream.Collectors
 
@@ -31,10 +30,10 @@ object LoanMapper {
 
             val installmentsItem =
                 loanResponse.repaymentSchedule?.installments?.stream()?.map {
-                    InstallmentsItem(amountDue = it.amountDue, dueDate = it.dueDate)
+                    InstallmentItem(amountDue = it.amountDue, dueDate = it.dueDate)
                 }?.collect(Collectors.toList())
 
-            val repaymentSchedule = RepaymentSchedule(installments = installmentsItem)
+            val repaymentSchedule = RepaymentSchedule(installmentItems = installmentsItem)
             return@map Loan(
                 interestRate = loanResponse.interestRate,
                 amount = loanResponse.amount,
