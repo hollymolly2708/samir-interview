@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:layout_marginBottom="8dp">
+
+    <TextView
+        android:id="@+id/borrower_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Borrower Name"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/loan_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Loan Amount"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/interest_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Interest Rate"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/loan_term"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Term (Months)"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/purpose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Purpose"
+        android:textSize="14sp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/risk_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Risk Rating"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>

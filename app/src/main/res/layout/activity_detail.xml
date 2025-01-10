@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Loan Information -->
+        <TextView
+            android:id="@+id/loan_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loan ID: 658539b43f5498ccae79105b"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/loan_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount: $5000"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/loan_interest_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Interest Rate: 0.8"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/loan_term"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Term: 120 months"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/loan_purpose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purpose: Business Expansion"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/loan_risk_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Risk Rating: C"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Borrower Information -->
+        <TextView
+            android:id="@+id/borrower_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Borrower: Shelly Valenzuela"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/borrower_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: shellyvalenzuela@orbaxter.com"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/borrower_credit_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Credit Score: 650"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Collateral Information -->
+        <TextView
+            android:id="@+id/collateral_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Collateral Type: Real Estate"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/collateral_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Collateral Value: $100,000"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Documents -->
+        <TextView
+            android:id="@+id/document_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Document: Income Statement"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/document_url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Document URL: /loans/documents/income_statement/slip-gaji-karyawan-pertamina.jpeg"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Repayment Schedule -->
+        <TextView
+            android:id="@+id/repayment_schedule_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Repayment Schedule:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/installment_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Example installment item -->
+            <TextView
+                android:id="@+id/installment_due_date_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due Date: 2023-01-15"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/installment_amount_due_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Due: $500"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Add more installments as needed -->
+            <TextView
+                android:id="@+id/installment_due_date_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Due Date: 2023-02-15"
+                android:textSize="14sp"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/installment_amount_due_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount Due: $500"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
