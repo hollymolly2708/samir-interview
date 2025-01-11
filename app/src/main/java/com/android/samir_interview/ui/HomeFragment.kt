@@ -83,9 +83,9 @@ class HomeFragment : Fragment() {
 
 
     private fun setupObservers() {
-        viewModel.loan.observe(viewLifecycleOwner) {
-            val adapter = LoanAdapter(it)
-            searchListener(it, adapter)
+        viewModel.loan.observe(viewLifecycleOwner) { loan ->
+            val adapter = LoanAdapter(loan)
+            searchListener(loan, adapter)
             binding.loanListRecyclerView.adapter = adapter
             binding.loanListRecyclerView.layoutManager = LinearLayoutManager(requireActivity())
             binding.loanListRecyclerView.setHasFixedSize(true)
@@ -98,6 +98,12 @@ class HomeFragment : Fragment() {
                 }
 
             })
+
+            binding.ivSort.setOnClickListener {
+
+                val loanSortedByBorrowerName = loan.sortedBy { it.borrower?.name }
+                adapter.updateListData(loanSortedByBorrowerName)
+            }
         }
     }
 

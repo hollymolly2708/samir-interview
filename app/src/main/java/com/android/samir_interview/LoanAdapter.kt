@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.AUTOFILL_TYPE_LIST
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.android.samir_interview.data.domain.model.Loan
 import com.android.samir_interview.databinding.ItemListLoanBinding
+import com.android.samir_interview.utils.Utilities
 
 class LoanAdapter(private var loans: List<Loan>) :
     RecyclerView.Adapter<LoanAdapter.LoanViewHolder>() {
@@ -34,8 +35,8 @@ class LoanAdapter(private var loans: List<Loan>) :
         val loan = loans[position]
         val borrowerName = loan.borrower?.name
         holder.binding.borrowerName.text = borrowerName
-        holder.binding.loanAmount.text = loan.amount.toString()
-        holder.binding.loanTerm.text = loan.term.toString() + " " + "Month"
+        holder.binding.loanAmount.text = "$" + loan.amount.toString()
+        holder.binding.loanTerm.text = loan.term.toString() + " " + "Bulan"
         holder.binding.purpose.text = loan.purpose
         holder.binding.interestRate.text = loan.interestRate.toString()
         holder.binding.riskRating.text = loan.riskRating
@@ -47,6 +48,18 @@ class LoanAdapter(private var loans: List<Loan>) :
 
     override fun getItemCount(): Int {
         return loans.size
+    }
+
+
+    inner class LoanViewHolder(var binding: ItemListLoanBinding) : ViewHolder(binding.root)
+
+    interface OnItemClickCallback {
+        fun onClicked(loan: Loan)
+    }
+
+    fun updateListData(newListData: List<Loan>) {
+        this.loans = newListData.toMutableList()
+        notifyDataSetChanged()
     }
 
     private fun setupColor(holder: LoanAdapter.LoanViewHolder, riskRating: String?) {
@@ -87,16 +100,5 @@ class LoanAdapter(private var loans: List<Loan>) :
             )
         }
 
-    }
-
-    inner class LoanViewHolder(var binding: ItemListLoanBinding) : ViewHolder(binding.root)
-
-    interface OnItemClickCallback {
-        fun onClicked(loan: Loan)
-    }
-
-    fun updateListData(newListData: List<Loan>) {
-        this.loans = newListData.toMutableList()
-        notifyDataSetChanged()
     }
 }

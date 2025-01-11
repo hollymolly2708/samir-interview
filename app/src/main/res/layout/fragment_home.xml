@@ -19,7 +19,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:queryHint="Cari nama peminjam disini...">
 
+
     </androidx.appcompat.widget.SearchView>
+
+    <ImageView
+        android:id="@+id/iv_sort"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/ic_sort"
+        app:layout_constraintBottom_toBottomOf="@+id/search_product"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/search_product">
+
+    </ImageView>
     <!-- RecyclerView to display the loan list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/loan_list_recycler_view"
