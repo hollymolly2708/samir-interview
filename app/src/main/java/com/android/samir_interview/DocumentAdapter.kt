@@ -28,6 +28,7 @@ class DocumentAdapter(private val documents: List<DocumentsItem?>) :
 
     override fun onBindViewHolder(holder: DocumentAdapter.DocumentViewHolder, position: Int) {
         val document = documents[position]
+        holder.binding.tvDocumentId.setText((position + 1).toString() + ".")
         holder.binding.documentType.text = document?.type
         holder.binding.documentUrl.text = document?.url
     }

@@ -3,6 +3,7 @@ package com.android.samir_interview
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.samir_interview.data.Resource
 import com.android.samir_interview.data.domain.model.Loan
 import com.android.samir_interview.data.domain.usecase.LoanUseCase
 

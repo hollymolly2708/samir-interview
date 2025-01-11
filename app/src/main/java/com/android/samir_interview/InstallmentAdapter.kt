@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.android.samir_interview.data.domain.model.InstallmentItem
 import com.android.samir_interview.databinding.ItemListInstallmentBinding
+import com.android.samir_interview.utils.Utilities
+import com.bumptech.glide.util.Util
 
 class InstallmentAdapter(private val installmentItems: List<InstallmentItem>) :
     RecyclerView.Adapter<InstallmentAdapter.InstallmentViewHolder>() {
@@ -25,8 +27,8 @@ class InstallmentAdapter(private val installmentItems: List<InstallmentItem>) :
 
     override fun onBindViewHolder(holder: InstallmentAdapter.InstallmentViewHolder, position: Int) {
         val installmentItem = installmentItems[position]
-        holder.binding.tvAmountDue.text = installmentItem.amountDue.toString()
-        holder.binding.tvDueDate.text = installmentItem.dueDate.toString()
+        holder.binding.tvAmountDue.text = "$" + installmentItem.amountDue.toString()
+        holder.binding.tvDueDate.text = Utilities.formatTanggal(installmentItem.dueDate)
     }
 
     override fun getItemCount(): Int {

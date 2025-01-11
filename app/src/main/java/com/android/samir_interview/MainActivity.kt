@@ -1,48 +1,96 @@
 package com.android.samir_interview
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.samir_interview.data.domain.model.Loan
-import com.android.samir_interview.data.source.remote.di.Injector
 import com.android.samir_interview.databinding.ActivityMainBinding
+import com.android.samir_interview.ui.FavoriteFragment
+import com.android.samir_interview.ui.HomeFragment
+import com.android.samir_interview.ui.OrderFragment
+import com.android.samir_interview.ui.ProductFragment
+import com.android.samir_interview.ui.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
+    private var selectedTab: Int = 1
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: LoanViewModel
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val factory = Injector.provideViewModelFactory()
-        viewModel = ViewModelProvider(this@MainActivity, factory)[LoanViewModel::class.java]
-        getDataLoans()
-        setupObservers()
-
+        supportFragmentManager.beginTransaction().setReorderingAllowed(true)
+            .replace(R.id.fragment_container, HomeFragment(), null).commit()
+        setupBottomBar()
     }
 
-    private fun setupObservers() {
-        viewModel.loan.observe(this) {
-            val adapter = LoanAdapter(it)
-            binding.loanListRecyclerView.adapter = adapter
-            binding.loanListRecyclerView.layoutManager = LinearLayoutManager(this)
-            binding.loanListRecyclerView.setHasFixedSize(true)
 
-            adapter.onItemClickCallback(object : LoanAdapter.OnItemClickCallback {
-                override fun onClicked(loan: Loan) {
-                    val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                    intent.putExtra(DetailActivity.LOAN, loan)
-                    startActivity(intent)
-                }
+    private fun setupBottomBar() {
+        binding.ivHome.setImageResource(R.drawable.ic_selected_home)
+        binding.ivFavorite.setImageResource(R.drawable.ic_favorite)
+        binding.ivProduct.setImageResource(R.drawable.ic_product)
+        binding.ivOrder.setImageResource(R.drawable.ic_bill)
+        binding.ivProfile.setImageResource(R.drawable.ic_profile)
+        binding.layoutHome.setOnClickListener {
 
-            })
+            if (selectedTab != 1) {
+                supportFragmentManager.beginTransaction().setReorderingAllowed(true)
+                    .replace(R.id.fragment_container, HomeFragment(), null).commit()
+                binding.ivHome.setImageResource(R.drawable.ic_selected_home)
+                binding.ivFavorite.setImageResource(R.drawable.ic_favorite)
+                binding.ivProduct.setImageResource(R.drawable.ic_product)
+                binding.ivOrder.setImageResource(R.drawable.ic_bill)
+                binding.ivProfile.setImageResource(R.drawable.ic_profile)
+                selectedTab = 1
+            }
+
+
         }
-    }
+        binding.layoutProduct.setOnClickListener {
+            if (selectedTab != 2) {
+                supportFragmentManager.beginTransaction().setReorderingAllowed(true)
+                    .replace(R.id.fragment_container, ProductFragment(), null).commit()
+                binding.ivHome.setImageResource(R.drawable.ic_home)
+                binding.ivFavorite.setImageResource(R.drawable.ic_favorite)
+                binding.ivProduct.setImageResource(R.drawable.ic_selected_product)
+                binding.ivOrder.setImageResource(R.drawable.ic_bill)
+                binding.ivProfile.setImageResource(R.drawable.ic_profile)
+                selectedTab = 2
+            }
+        }
+        binding.layoutFavorite.setOnClickListener {
+            if (selectedTab != 3) {
+                supportFragmentManager.beginTransaction().setReorderingAllowed(true)
+                    .replace(R.id.fragment_container, FavoriteFragment(), null).commit()
+                binding.ivHome.setImageResource(R.drawable.ic_home)
+                binding.ivFavorite.setImageResource(R.drawable.ic_selected_favorite)
+                binding.ivProduct.setImageResource(R.drawable.ic_product)
+                binding.ivOrder.setImageResource(R.drawable.ic_bill)
+                binding.ivProfile.setImageResource(R.drawable.ic_profile)
+                selectedTab = 3
+            }
+        }
+        binding.layoutOrder.setOnClickListener {
+            if (selectedTab != 4) {
+                supportFragmentManager.beginTransaction().setReorderingAllowed(true)
+                    .replace(R.id.fragment_container, OrderFragment(), null).commit()
+                binding.ivHome.setImageResource(R.drawable.ic_home)
+                binding.ivFavorite.setImageResource(R.drawable.ic_favorite)
+                binding.ivProduct.setImageResource(R.drawable.ic_product)
+                binding.ivOrder.setImageResource(R.drawable.ic_selected_bill)
+                binding.ivProfile.setImageResource(R.drawable.ic_profile)
+                selectedTab = 4
+            }
+        }
+        binding.layoutProfile.setOnClickListener {
+            if (selectedTab != 5) {
+                supportFragmentManager.beginTransaction().setReorderingAllowed(true)
+                    .replace(R.id.fragment_container, ProfileFragment(), null).commit()
+                binding.ivHome.setImageResource(R.drawable.ic_home)
+                binding.ivFavorite.setImageResource(R.drawable.ic_favorite)
+                binding.ivProduct.setImageResource(R.drawable.ic_product)
+                binding.ivOrder.setImageResource(R.drawable.ic_bill)
+                binding.ivProfile.setImageResource(R.drawable.ic_selected_profile)
+                selectedTab = 5
+            }
+        }
 
-    private fun getDataLoans() {
-        viewModel.getLoans()
     }
 }

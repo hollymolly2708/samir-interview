@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.Samir_interview" parent="Base.Theme.Samir_interview" />
+
+    <style name="Theme.Detail_Activity" parent="Theme.AppCompat.DayNight.DarkActionBar">
+
+        <item name="android:statusBarColor">@color/bata_red</item>
+        <item name="colorPrimary">@color/bata_red</item>
+    </style>
 </resources>
