@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+  >
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_product"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:background="@drawable/background_square_corners"
         app:backgroundTint="@null"
         app:iconifiedByDefault="false"
-
+        app:layout_constraintEnd_toStartOf="@+id/iv_sort"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:queryHint="Cari nama peminjam disini...">
@@ -26,6 +27,7 @@
         android:id="@+id/iv_sort"
         android:layout_width="35dp"
         android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/ic_sort"
         app:layout_constraintBottom_toBottomOf="@+id/search_product"
         app:layout_constraintEnd_toEndOf="parent"

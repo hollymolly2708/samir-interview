@@ -66,7 +66,7 @@
                     android:gravity="end"
                     android:text="658539b43f5498ccae79105b"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_loan_id"
                     app:layout_constraintTop_toTopOf="@+id/tv_loan_id" />
@@ -93,7 +93,7 @@
                     android:gravity="end"
                     android:text="$5000"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_loan_amount"
@@ -121,7 +121,7 @@
                     android:gravity="end"
                     android:text="0.8"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
 
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_interest_rate"
@@ -137,7 +137,7 @@
                     android:gravity="end"
                     android:text="120 months"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_loan_term"
                     app:layout_constraintTop_toTopOf="@+id/tv_loan_term" />
@@ -161,8 +161,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:textSize="12sp"
                     android:text="Peringkat resiko"
+                    android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tv_loan_term" />
 
@@ -175,7 +175,7 @@
                     android:gravity="end"
                     android:text="C"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_risk_rating"
                     app:layout_constraintTop_toTopOf="@+id/tv_risk_rating" />
@@ -202,7 +202,7 @@
                     android:gravity="end"
                     android:text="Business Expansion"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_purpose"
@@ -266,7 +266,7 @@
                     android:gravity="end"
                     android:text="2837827hsdjshdks287822-ldsld"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_peminjam"
                     app:layout_constraintTop_toTopOf="@+id/tv_peminjam" />
@@ -280,7 +280,7 @@
                     android:gravity="end"
                     android:text="Shelly Valenzuela"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/tv_nama_peminjam"
@@ -309,7 +309,7 @@
                     android:gravity="end"
                     android:text="shellyvalenzuela@orbaxter.com"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_email"
                     app:layout_constraintTop_toTopOf="@+id/tv_email" />
@@ -336,7 +336,7 @@
                     android:gravity="end"
                     android:text="650"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/tv_credit_score"
@@ -490,10 +490,23 @@
 
                 </TextView>
 
+                <TextView
+                    android:id="@+id/tv_no_document"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="No Document"
+                    tools:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                </TextView>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_document"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
