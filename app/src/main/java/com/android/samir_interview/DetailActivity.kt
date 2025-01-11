@@ -2,6 +2,7 @@ package com.android.samir_interview
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.samir_interview.data.domain.model.Loan
@@ -55,6 +56,11 @@ class DetailActivity : AppCompatActivity() {
             binding.rvDocument.adapter = adapter
             binding.rvDocument.layoutManager = LinearLayoutManager(this)
             binding.rvDocument.setHasFixedSize(true)
+            binding.tvNoDocument.visibility = View.GONE
+            binding.rvDocument.visibility = View.VISIBLE
+        } else {
+            binding.tvNoDocument.visibility = View.VISIBLE
+            binding.rvDocument.visibility = View.GONE
         }
 
         loan.let {
@@ -72,12 +78,10 @@ class DetailActivity : AppCompatActivity() {
             binding.collateralValue.text = "$" + it.collateral?.value.toString()
 
 
-
         }
 
 
     }
-
 
 
 }
