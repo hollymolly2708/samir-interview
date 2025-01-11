@@ -5,8 +5,6 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.samir_interview.data.domain.model.Loan
-import com.android.samir_interview.data.domain.model.RepaymentSchedule
-
 import com.android.samir_interview.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
