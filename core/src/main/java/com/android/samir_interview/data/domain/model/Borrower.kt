@@ -5,7 +5,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Borrower(
-
     val creditScore: Int? = null,
     val name: String? = null,
     val id: String? = null,

@@ -1,11 +1,18 @@
 package com.android.samir_interview.data.source.remote
 
+import android.util.DisplayMetrics
 import android.util.Log
+import com.android.samir_interview.data.domain.model.Loan
 import com.android.samir_interview.data.source.remote.network.ApiService
 import com.nature_farm.android.samir_interview.LoanResponse
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class RemoteDataSource private constructor(private val apiService: ApiService) {
     companion object {
@@ -23,28 +30,21 @@ class RemoteDataSource private constructor(private val apiService: ApiService) {
         }
     }
 
-    fun getDataLoans(callback: (ApiResponse<List<LoanResponse>?>) -> Unit) {
-        apiService.getDataLoans().enqueue(object : Callback<List<LoanResponse>> {
-            override fun onResponse(
-                call: Call<List<LoanResponse>>,
-                response: Response<List<LoanResponse>>,
-            ) {
-                if (response.isSuccessful) {
-                    val body = response.body()
-                    if (body != null) {
-                        callback(ApiResponse.Error(response.message()))
-                    }
-                    callback(ApiResponse.Success(body))
+    suspend fun getDataLoans(): Flow<ApiResponse<List<LoanResponse>>> {
+
+
+        return flow {
+            try {
+                val response = apiService.getDataLoans()
+                if (response.isNotEmpty()) {
+                    emit(ApiResponse.Success(response))
                 } else {
-                    callback(ApiResponse.Error(response.message()))
+                    emit(ApiResponse.Empty)
                 }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
+                Log.e("RemoteDataSource", e.toString())
             }
-
-            override fun onFailure(call: Call<List<LoanResponse>>, t: Throwable) {
-                Log.e("getDataLoansFailure", t.message.toString())
-                callback(ApiResponse.Error(t.message.toString()))
-            }
-
-        })
+        }.flowOn(Dispatchers.IO)
     }
 }

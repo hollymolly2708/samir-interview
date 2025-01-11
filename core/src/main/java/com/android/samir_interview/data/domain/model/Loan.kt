@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Loan(
-    val interestRate: Double? = null,  // Menambahkan @RawValue di sini
+    val interestRate: Double? = null,
     val amount: Int? = null,
     val purpose: String? = null,
     val documents: List<DocumentsItem?>? = null,

@@ -6,7 +6,6 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Collateral(
-
     val type: String? = null,
-    val value: Int? = null
+    val value: Int? = null,
 ) : Parcelable
