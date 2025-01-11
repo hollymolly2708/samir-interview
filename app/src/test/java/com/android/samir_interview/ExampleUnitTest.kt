@@ -1,4 +1,4 @@
-package com.nature_farm.android.samir_interview
+package com.android.samir_interview
 
 import org.junit.Test
 
